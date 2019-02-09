@@ -1,0 +1,95 @@
+html {
+  font-style: normal;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.header-title {
+  font-size: 24px
+}
+
+.header-container-one {
+  display: flex;
+  align-items: center;
+  width: 90px;
+  justify-content: space-around
+}
+
+.cart-notif {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0px;
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  line-height: 16px;
+  text-align: center;
+  background-color: #ffa9ce;
+  color: white;
+  top: 17px;
+  right: 2px;
+  border-radius: 50%;
+}
+.header {
+  padding-left: 36px;
+  padding-right: 36px;
+  position: sticky;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 400;
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.2s ease-in-out 0s;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08), 0 0 1px rgba(1,0,0,.1);
+}
+
+@media (max-width: 500px) {
+  .header-title {
+    font-size: 18px
+  }
+
+  .header {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+
+.header-inner {
+  display: flex;
+  margin: 0 auto;
+  min-height: 72px;
+  position: relative;
+  -webkit-transition: min-height 0.2s ease-in-out;
+  transition: min-height 0.2s ease-in-out;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.order-submit {
+  -webkit-appearance: none;
+  background-color: #ff569e85;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 35%;
+  border-radius: 20px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  padding: 14px 20px;
+  transition: background-color 0.25s ease-in-out 0s;
+}
+
+.order-submit[disabled] {
+  background-color: rgb(236, 237, 239);
+  cursor: not-allowed;
+}
