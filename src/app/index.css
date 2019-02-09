@@ -93,3 +93,11 @@ a {
   background-color: rgb(236, 237, 239);
   cursor: not-allowed;
 }
+
+.onboarding-svg {
+  height: 41vh;
+}
+
+.no-pad {
+  padding: 0
+}
