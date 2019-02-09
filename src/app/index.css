@@ -57,7 +57,6 @@ a {
   }
 }
 
-
 .header-inner {
   display: flex;
   margin: 0 auto;
@@ -98,6 +97,122 @@ a {
   height: 41vh;
 }
 
+.onboarding-parent {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  flex-direction: column;
+  background: linear-gradient(0, #654ea342, #eaafc885);
+}
+
+.onboarding-step-parent {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  justify-content: center;
+  align-items: center;
+}
+
+.onboarding-content-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.onboarding-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 375px;
+}
+
+.onboarding-fade-in {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.onboarding-progress {
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  margin-bottom: 15px;
+}
+
 .no-pad {
   padding: 0
+}
+
+@media (max-height: 400px) {
+  h1 {
+    font-size: 18px
+  }
+  p {
+    font-size: 12px;
+  }
+  .onboarding-svg {
+    height: 30vh;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 24px
+  }
+  .onboarding-svg {
+    max-width: 90vw;
+  }
+  .zero {
+    margin-top: 5vh;
+  }
+}
+
+@media (min-width: 600px) {
+  .fab {
+    background-color: #ffa9ce;
+  }
+  .onboarding-parent {
+    padding: 0;
+  }
+  .onboarding-step-parent {
+    flex-direction: row;
+    flex: 1;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .onboarding-svg-parent {
+    flex: 3;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .onboarding-content-parent {
+    margin-top: 40px;
+    background-color: white;
+    flex: 2;
+    height: 100%;
+    margin: 0;
+    align-items: default;
+  }
+  .onboarding-content {
+    padding-bottom: 40%;
+    flex: 1;
+  }
+  .onboarding-fade-in {
+    height: 100%;
+  }
+  .onboarding-svg {
+    padding-bottom: 20%;
+    height: 450px;
+  }
+
+  .onboarding-progress {
+    padding-top: 30px
+  }
 }
