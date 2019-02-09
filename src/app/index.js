@@ -11,6 +11,11 @@ const Landing = Loadable({
   loading: Loading,
 });
 
+const NotFound = Loadable({
+  loader: () => import('../routes/notFound'),
+  loading: Loading,
+});
+
 import Header from '../components/header'
 
 export default class extends React.Component {
@@ -55,6 +60,7 @@ export default class extends React.Component {
         <Router style={{display: 'flex', flex: 1}}>
           <Landing path='/' />
           
+          <NotFound default />
         </Router>
       </Fragment>
     )
