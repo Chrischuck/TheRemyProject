@@ -4,6 +4,12 @@ import Loadable from 'react-loadable';
 
 import './index.css'
 
+import Loading from '../components/loading'
+
+const Landing = Loadable({
+  loader: () => import('../routes/landing'),
+  loading: Loading,
+});
 
 import Header from '../components/header'
 
@@ -12,9 +18,9 @@ export default class extends React.Component {
   render() {
     return (
       <Fragment>
-        <Header isLoggedIn={isLoggedIn} cart={cart} logout={this.logout} />
+        <Header />
         <Router style={{display: 'flex', flex: 1}}>
-          <div path='/' >hi</div>
+          <Landing path='/' />
           
         </Router>
       </Fragment>
