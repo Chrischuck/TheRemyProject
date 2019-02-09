@@ -51,7 +51,7 @@ export default class extends React.Component {
     const { cart, address, isLoggedIn } = this.state
     return (
       <Fragment>
-        <Header />
+        <Header isLoggedIn={isLoggedIn} />
         <Router style={{display: 'flex', flex: 1}}>
           <Landing path='/' />
           
