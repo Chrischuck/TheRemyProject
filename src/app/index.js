@@ -11,6 +11,36 @@ const Landing = Loadable({
   loading: Loading,
 });
 
+const Onboarding = Loadable({
+  loader: () => import('../routes/onboarding'),
+  loading: Loading,
+});
+
+const Login = Loadable({
+  loader: () => import('../routes/login'),
+  loading: Loading,
+});
+
+const Order = Loadable({
+  loader: () => import('../routes/order'),
+  loading: Loading,
+});
+
+const Checkout = Loadable({
+  loader: () => import('../routes/checkout'),
+  loading: Loading,
+});
+
+const Current = Loadable({
+  loader: () => import('../routes/current'),
+  loading: Loading,
+});
+
+const Pending = Loadable({
+  loader: () => import('../routes/pending'),
+  loading: Loading,
+});
+
 const NotFound = Loadable({
   loader: () => import('../routes/notFound'),
   loading: Loading,
@@ -59,7 +89,12 @@ export default class extends React.Component {
         <Header isLoggedIn={isLoggedIn} />
         <Router style={{display: 'flex', flex: 1}}>
           <Landing path='/' />
-          
+          <Onboarding path="/onboarding" />
+          <Order path="/order" />
+          <Checkout path="/checkout" />
+          <Current path="/current" />
+          <Pending path="/pending" />
+          <Login path="/login" />
           <NotFound default />
         </Router>
       </Fragment>
