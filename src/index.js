@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDom from 'react-dom'
 
+import App from './app'
+
 ReactDom.render(
-  <div>Full stack lacroix!</div>,
+  <App />,
   document.getElementById('app')
 )
