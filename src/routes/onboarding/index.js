@@ -30,7 +30,8 @@ class Onboarding extends React.Component {
       name: '',
       email: '',
       password: '',
-      error: false
+      error: false,
+      fromLanding,
     }
   }
 
@@ -64,12 +65,12 @@ class Onboarding extends React.Component {
 
 
   renderStep = () => {
-    const { error, email, password, step, name } = this.state
+    const { error, email, password, step, fromLanding } = this.state
     switch (step) {
       case 0:
         return <Zero next={this.next} step={step} />
       case 1:
-        return <One onKeyPress={this.onKeyPress} onChange={this.onChange} step={step} error={error} />
+        return <One fromLanding={fromLanding} onKeyPress={this.onKeyPress} onChange={this.onChange} step={step} error={error} />
       case 2:
         return <Two onKeyPress={this.onKeyPress} email={email} password={password} username={this.state.name} step={step} error={error} onChange={this.onChange} />
       case 3:

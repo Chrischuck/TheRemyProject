@@ -122,7 +122,7 @@ function (_React$Component) {
           email = _this$state2.email,
           password = _this$state2.password,
           step = _this$state2.step,
-          name = _this$state2.name;
+          fromLanding = _this$state2.fromLanding;
 
       switch (step) {
         case 0:
@@ -133,6 +133,7 @@ function (_React$Component) {
 
         case 1:
           return React.createElement(One, {
+            fromLanding: fromLanding,
             onKeyPress: _this.onKeyPress,
             onChange: _this.onChange,
             step: step,
@@ -160,14 +161,16 @@ function (_React$Component) {
       }
     });
 
-    var fromLanding = !!localStorage.getItem('from_landing');
+    var _fromLanding = !!localStorage.getItem('from_landing');
+
     localStorage.setItem('from_landing', '');
     _this.state = {
-      step: fromLanding ? 1 : 0,
+      step: _fromLanding ? 1 : 0,
       name: '',
       email: '',
       password: '',
-      error: false
+      error: false,
+      fromLanding: _fromLanding
     };
     return _this;
   }

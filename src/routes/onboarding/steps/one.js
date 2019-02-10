@@ -7,8 +7,8 @@ import { FadeInFromLeft, FadeIn } from '../../../components/animate'
 import ProgressDots from '../../../components/progressDots'
 import IconInput from '../../../components/iconInput'
 
-export default ({ onChange, error, step, onKeyPress, name }) => {
-  return window.mobileType() === 'Desktop' ?
+export default ({ onChange, error, step, onKeyPress, name, fromLanding }) => {
+  return window.mobileType() === 'Desktop' || fromLanding ?
   (
     <div className='flex-center onboarding-fade-in'>
       <div className='onboarding-step-parent'>

@@ -8,8 +8,9 @@ export default (function (_ref) {
       error = _ref.error,
       step = _ref.step,
       onKeyPress = _ref.onKeyPress,
-      name = _ref.name;
-  return window.mobileType() === 'Desktop' ? React.createElement("div", {
+      name = _ref.name,
+      fromLanding = _ref.fromLanding;
+  return window.mobileType() === 'Desktop' || fromLanding ? React.createElement("div", {
     className: "flex-center onboarding-fade-in"
   }, React.createElement("div", {
     className: "onboarding-step-parent"
