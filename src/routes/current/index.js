@@ -33,7 +33,6 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    // do db call here
     this.fetchData()
 
     const interval = setInterval(this.fetchData, 2000);
@@ -97,7 +96,7 @@ export default class extends React.Component {
     }).map(c => <Card lacroix={c} updateItem={() => this.updateItem(c.aws_id)} />)
   }
 
-  updateItem = (id) => {
+  updateItem = async (id) => {
     const ddb = new AWS.DynamoDB({});
 
     const params = {
@@ -116,9 +115,23 @@ export default class extends React.Component {
       ReturnValues:"UPDATED_NEW"
     };
 
-    ddb.updateItem(params).promise()
+    await ddb.updateItem(params).promise()
     .then(() => this.fetchData())
     .catch(console.log)
+
+    const phone = window.localStorage.getItem('phone')
+    if (phone) {
+      await fetch(`${process.env.TWILLIO_SERVER}/pickup-pending`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          number: phone
+        })
+      })
+      .catch(console.log)
+    }
   }
    
   render() {

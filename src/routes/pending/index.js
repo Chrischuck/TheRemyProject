@@ -68,6 +68,19 @@ export default class extends React.Component {
 
         window.localStorage.setItem('pending_order_id', '')
         window.localStorage.setItem('pending_order_flavor', '')
+        const phone = window.localStorage.getItem('phone')
+        if (phone) {
+          await fetch(`${process.env.TWILLIO_SERVER}/delivered`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              number: phone
+            })
+          })
+          .catch(console.log)
+        }
         this.setState({ isComplete: true })
       }
      }, 2000);

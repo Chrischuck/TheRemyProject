@@ -95,7 +95,6 @@ export default class extends React.Component {
             })
           })
           .catch(console.log)
-
         }
       }
     }
