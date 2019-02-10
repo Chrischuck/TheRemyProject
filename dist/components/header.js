@@ -97,9 +97,14 @@ function (_React$Component) {
             display: 'flex',
             alignItems: 'center'
           }
+        }, React.createElement(Link, {
+          to: "/"
         }, React.createElement("h1", {
-          className: "header-title"
-        }, "Full Stack Lacroix")), isLoggedIn ? React.createElement("div", {
+          className: "header-title",
+          style: {
+            fontSize: isLoggedIn ? '25px' : 'default'
+          }
+        }, "Full Stack Lacroix"))), isLoggedIn ? React.createElement("div", {
           className: "header-container-one"
         }, React.createElement("svg", {
           ref: _this2.icon,

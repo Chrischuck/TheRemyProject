@@ -44,9 +44,11 @@ export default class extends React.Component {
               <div className='header'>
                 <div className='header-inner'>
                   <div style={{ display: 'flex', alignItems: 'center'}}>
-                    <h1 className="header-title">
-                      Full Stack Lacroix
-                    </h1>
+                    <Link to="/">
+                      <h1 className="header-title" style={{ fontSize: isLoggedIn ? '25px' : 'default'}}>
+                        Full Stack Lacroix
+                      </h1>
+                    </Link>
                   </div>
 
                   {

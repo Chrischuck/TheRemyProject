@@ -18,18 +18,21 @@ class Landing extends React.Component {
     
     return (
       <div className='landing-parent'>
+
         <div className='landing-content'>
           <h1 style={{fontSize: '4em'}}>Friends don't let friends waste. Recycle. </h1>
-          <p style={{fontSize: '20px'}}>The leading service to deliver and recycle your LaCroix</p>
+          <p style={{fontSize: '25px', marginTop: '0px', marginBottom: '30px'}}>The leading service to deliver and recycle your LaCroix</p>
           <a onClick={this.onClick} style={{margin: '0', width: '170px'}} className='round-button'>
             {
               isLoggedIn ? 'Order Now' : 'Get Started'
             }
           </a>
         </div>
+
         <div className='landing-svg'>
         <Landingsvg/>
         </div>
+
       </div>
     )
   }

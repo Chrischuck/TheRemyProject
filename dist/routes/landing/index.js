@@ -69,7 +69,9 @@ function (_React$Component) {
         }
       }, "Friends don't let friends waste. Recycle. "), React.createElement("p", {
         style: {
-          fontSize: '20px'
+          fontSize: '25px',
+          marginTop: '0px',
+          marginBottom: '30px'
         }
       }, "The leading service to deliver and recycle your LaCroix"), React.createElement("a", {
         onClick: this.onClick,
