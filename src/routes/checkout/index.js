@@ -91,9 +91,11 @@ export default class extends React.Component {
     
     return (
       <div className='order-parent'>
-        <div className='order-header checkout' style={{paddingBottom: '12px'}}>
-          <h1>Checkout</h1>
-          <p>Confirm your order.</p>
+        <div className='order-header' style={{paddingBottom: '12px'}}>
+          <div style={{ width: '70%', margin: 'auto'}}>
+            <h1>Checkout</h1>
+            <p>Confirm your order.</p>
+          </div>
         </div>
 
         <div className='checkout-section-parent'>
