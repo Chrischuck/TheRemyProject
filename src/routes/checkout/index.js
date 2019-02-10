@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import { Redirect, navigate } from '@reach/router';
+import { navigate } from '@reach/router';
 
 import AWS from '../../utils/aws'
 
@@ -25,7 +25,7 @@ export default class extends React.Component {
   }
 
   onSubmit = async () => {
-    const { address, name, time } = this.state
+    const { address, name, time, phone } = this.state
 
     if (!address || !name || !time) {
       this.setState({ error: true })
@@ -71,13 +71,34 @@ export default class extends React.Component {
      };
 
      await ddb.putItem(params).promise()
-      .then(console.log)
       .catch(console.log)
 
     window.localStorage.setItem('pending_order_id', id)
     window.localStorage.setItem('pending_order_flavor', cart.name)
     this.props.setCart(null)
     this.setState({ loading: false, complete: true })
+
+    if (phone) {
+      const number = phone.match(/^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/)
+      if (number) {
+        const formattedNumber = '1' + number[2] + number[3] + number[4]
+        window.localStorage.setItem('phone', formattedNumber)
+
+        if (formattedNumber) {
+          await fetch(`${process.env.TWILLIO_SERVER}/confirm`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              number: formattedNumber
+            })
+          })
+          .catch(console.log)
+
+        }
+      }
+    }
   }
 
   render() {
