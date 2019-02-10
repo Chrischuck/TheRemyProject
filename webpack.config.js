@@ -46,7 +46,7 @@ const webpackConfig = {
       { from: './_redirects' },
     ]),
     new HtmlWebpackPlugin({
-      title: 'Alternative Dojo',
+      title: 'Full Stack LaCroix',
       template: './src/index.html',
       filename: './index.html',
       inject: true,
