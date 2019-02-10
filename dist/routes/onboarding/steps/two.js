@@ -44,7 +44,7 @@ export default (function (_ref) {
     iconType: "email",
     type: "email",
     onKeyPress: onKeyPress,
-    placeholder: "Chris@fullstacklacroix.co",
+    placeholder: "Chris@fullstacklacroix.com",
     error: error && !email,
     errorMessage: "Please enter an email.",
     value: email
@@ -94,7 +94,7 @@ export default (function (_ref) {
     onChange: onChange,
     iconType: "email",
     type: "email",
-    placeholder: "Chris@fullstacklacroix.co",
+    placeholder: "Chris@fullstacklacroix.com",
     error: error && !email,
     errorMessage: "Please enter an email."
   }), React.createElement(IconInput, {

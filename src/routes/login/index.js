@@ -51,7 +51,7 @@ export default class extends React.Component {
                 onChange={this.onChange}
                 iconType='email'
                 type='email'
-                placeholder='Chris@fullstacklacroix.co'
+                placeholder='Chris@fullstacklacroix.com'
                 error={error && !email}
                 errorMessage='Please enter an email.'
               />
@@ -84,7 +84,7 @@ export default class extends React.Component {
                 onChange={this.onChange}
                 iconType='email'
                 type='email'
-                placeholder='Chris@fullstacklacroix.co'
+                placeholder='Chris@fullstacklacroix.com'
                 error={error && !email}
                 errorMessage='Please enter an email.'
               />

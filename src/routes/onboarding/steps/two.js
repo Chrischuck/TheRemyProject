@@ -28,7 +28,7 @@ export default ({ username, onChange, email, password, error, step, onKeyPress }
               iconType='email'
               type='email'
               onKeyPress={onKeyPress}
-              placeholder='Chris@fullstacklacroix.co'
+              placeholder='Chris@fullstacklacroix.com'
               error={error && !email}
               errorMessage='Please enter an email.'
               value={email}
@@ -69,7 +69,7 @@ export default ({ username, onChange, email, password, error, step, onKeyPress }
               onChange={onChange}
               iconType='email'
               type='email'
-              placeholder='Chris@fullstacklacroix.co'
+              placeholder='Chris@fullstacklacroix.com'
               error={error && !email}
               errorMessage='Please enter an email.'
             />

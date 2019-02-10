@@ -102,7 +102,7 @@ function (_React$Component) {
         onChange: this.onChange,
         iconType: "email",
         type: "email",
-        placeholder: "Chris@fullstacklacroix.co",
+        placeholder: "Chris@fullstacklacroix.com",
         error: error && !email,
         errorMessage: "Please enter an email."
       }), React.createElement(IconInput, {
@@ -152,7 +152,7 @@ function (_React$Component) {
         onChange: this.onChange,
         iconType: "email",
         type: "email",
-        placeholder: "Chris@fullstacklacroix.co",
+        placeholder: "Chris@fullstacklacroix.com",
         error: error && !email,
         errorMessage: "Please enter an email."
       }), React.createElement(IconInput, {
