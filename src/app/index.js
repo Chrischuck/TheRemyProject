@@ -89,7 +89,7 @@ export default class extends React.Component {
         <Header isLoggedIn={isLoggedIn} />
         <Router style={{display: 'flex', flex: 1}}>
           <Landing path='/' />
-          <Onboarding path="/onboarding" />
+          <Onboarding path="/onboarding" login={this.login} />
           <Order path="/order" />
           <Checkout path="/checkout" />
           <Current path="/current" />

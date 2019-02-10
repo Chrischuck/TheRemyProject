@@ -222,7 +222,6 @@ a {
   box-shadow: rgba(67, 90, 111, 0.204) 0px 0px 0px 1px inset, rgba(67, 90, 111, 0.145) 0px 1px 2px inset;
   -webkit-rtl-ordering: logical;
   cursor: text;
-  padding: 0 10px;
   height: 32px;
   color: rgb(67, 90, 111);
   font-size: 16px;
@@ -239,7 +238,6 @@ a {
   text-align: start;
   margin: 0em;
   border: none;
-  width: 228px;
   -webkit-appearance: none;
 }
 
