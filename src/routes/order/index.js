@@ -47,8 +47,8 @@ class Order extends React.Component {
     return (
       <div className='order-parent'>
         <div className='order-header'>
-          <h1>LaCroix Sparkling Water</h1>
-          <p>LaCroix - sparkling water perfected.</p>
+          <h1 style={{marginLeft: '20px'}}>LaCroix Sparkling Water</h1>
+          <p style={{marginLeft: '20pxgit re'}}>LaCroix - sparkling water perfected.</p>
         </div>
 
         <div className='order-body location'>
