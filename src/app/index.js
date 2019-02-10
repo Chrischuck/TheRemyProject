@@ -86,15 +86,14 @@ export default class extends React.Component {
     const { cart, address, isLoggedIn } = this.state
     return (
       <Fragment>
-        <Header isLoggedIn={isLoggedIn} />
+        <Header isLoggedIn={isLoggedIn} cart={cart} logout={this.logout} />
         <Router style={{display: 'flex', flex: 1}}>
           <Landing path='/' />
           <Onboarding path="/onboarding" login={this.login} />
-          <Order path="/order" />
-          <Checkout path="/checkout" />
-          <Current path="/current" />
+          <Order path="/order" setCart={this.setCart} cart={cart} onTextChange={this.onTextChange} address={address} />
+          <Checkout path="/checkout" setCart={this.setCart} cart={cart} address={address} />
           <Pending path="/pending" />
-          <Login path="/login" />
+          <Login path="/login" login={this.login} />
           <NotFound default />
         </Router>
       </Fragment>
