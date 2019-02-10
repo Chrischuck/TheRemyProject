@@ -50,7 +50,7 @@ class Onboarding extends React.Component {
     if (step === 2) {
       localStorage.setItem('email', email)
       localStorage.setItem('name', name)
-      this.props.login()
+      this.props.login(email)
     }
     this.setState((prevState) => ({ step: prevState.step + 1, error: false }))
   }

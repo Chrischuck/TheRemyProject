@@ -1,15 +1,21 @@
 import React from 'react';
 
 import AWS from '../../utils/aws'
-
 import lacroixMap from '../../utils/lacroixMap'
 
-const Card = ({ lacroix }) => (
+import { FadeIn } from '../../components/animate'
+
+const Card = ({ lacroix, updateItem }) => (
   <div className='checkout-box' style={{ marginBottom: '10px'}}>
     <div className='item-words' style={{display:'block'}}>
       <h3 className='item-title'>{lacroix.name}</h3> 
       <p className='item-desc'>{lacroix.description}</p>
-      <a className='round-button' style={{ position: 'absolute', fontWeight: 'bold', padding: '7px 30px' }}>Pickup</a>
+      {
+        !lacroix.pickup ?
+          <a onClick={updateItem} className='round-button' style={{ position: 'absolute', fontWeight: 'bold', padding: '7px 30px' }}>Pickup</a> :
+          <FadeIn><p style={{marginTop: '20px'}}>Awesome! We're on our way to pick up your LaCroix.</p></FadeIn>
+      }
+
     </div>
     <div className='item-image-container'>
       <img style={{height: '110px', width: '110px' }} src={lacroix.img} />
@@ -22,20 +28,99 @@ export default class extends React.Component {
     super(props)
 
     this.state = {
-      current: ['pure', 'lime']
+      current: []
     }
   }
 
   componentDidMount() {
     // do db call here
+    this.fetchData()
+
+    const interval = setInterval(this.fetchData, 2000);
+    window.localStorage.setItem('current_drink_poll', interval)
+  }
+
+  componentDidCatch() {
+    const interval = window.localStorage.getItem('current_drink_poll')
+    clearInterval(interval)
+  }
+  componentWillUnmount() {
+    const interval = window.localStorage.getItem('current_drink_pollsssss')
+    clearInterval(interval)
+  }
+
+
+  fetchData = async () => {
+    const ddb = new AWS.DynamoDB({});
+    const params = {
+      ExpressionAttributeValues: {
+       ":email": {
+         S: this.props.email 
+        },
+        ":pending": {
+          S: 'pending'
+        }
+      },
+      FilterExpression: "pending <> :pending AND email = :email",
+      ProjectionExpression: "drink, pickup, id", 
+      TableName: "remy_orders"
+     };
+
+    const d = await ddb.scan(params).promise()
+    .then((d) => d.Items)
+    .catch(console.log)
+
+    if (d) {
+      this.setState({ current: d.map(c => ({ aws_id: c.id.S, drink: c.drink.S, pickup: c.pickup ? c.pickup.S : null }) ) })
+    }
   }
 
   renderLacroix = () => {
     const { current } = this.state
 
-    return current.map(c => lacroixMap[c]).map(c => <Card lacroix={c} />)
+    if (current.length < 1) {
+      return (
+        <div className='checkout-box'>
+          <div className='item-words' style={{display:'block'}}>
+            <h3 className='item-title'>Uh Oh.</h3> 
+            <p className='item-desc'>You don't have any LaCroix! Let's change that.</p>
+          </div>
+        </div>
+      )
+    }
+
+    return current.map(c => {
+      const s = lacroixMap[c.drink]
+      s.pickup = c.pickup
+      s.aws_id = c.aws_id
+      return s
+    }).map(c => <Card lacroix={c} updateItem={() => this.updateItem(c.aws_id)} />)
   }
-  
+
+  updateItem = (id) => {
+    const ddb = new AWS.DynamoDB({});
+
+    const params = {
+      TableName:"remy_orders",
+      Key: {
+        id: {
+          S: id
+        }
+      },
+      UpdateExpression: "set pickup = :pickup",
+      ExpressionAttributeValues:{
+          ":pickup": {
+            S: 'true'
+          },
+      },
+      ReturnValues:"UPDATED_NEW"
+    };
+
+    ddb.updateItem(params).promise()
+    .then(() => this.fetchData())
+    .catch(console.log)
+  }
+   
   render() {
     return (
       <div className='order-parent'>
