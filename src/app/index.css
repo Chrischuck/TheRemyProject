@@ -324,3 +324,23 @@ a {
     padding-top: 30px
   }
 }
+
+.dropdown {
+  position: absolute;
+  top: 60px;
+  width: 120px;
+  right: 1px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.224) 1px 1px 4px;
+  border-radius: 4px;
+}
+
+.dropdown-content {
+  cursor: pointer;
+  color: #797979;
+  height: 30px;
+  border-bottom: 1px solid #e2e2e2;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+}
