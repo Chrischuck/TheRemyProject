@@ -76,7 +76,7 @@ function (_React$Component) {
       }, isLoggedIn ? 'Order Now' : 'Get Started')), React.createElement("div", {
         className: "landing-svg"
       }, React.createElement(Landingsvg, {
-        className: "onboarding-svg"
+        className: "lsv"
       })));
     }
   }]);

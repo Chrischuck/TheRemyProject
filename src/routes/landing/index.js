@@ -30,7 +30,7 @@ class Landing extends React.Component {
         </div>
 
         <div className='landing-svg'>
-        <Landingsvg className='onboarding-svg' />
+        <Landingsvg className='lsv' />
         </div>
 
       </div>
