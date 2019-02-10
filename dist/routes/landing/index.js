@@ -64,25 +64,20 @@ function (_React$Component) {
       }, React.createElement("div", {
         className: "landing-content"
       }, React.createElement("h1", {
-        style: {
-          fontSize: '4em'
-        }
+        className: "landing-h1"
       }, "Friends don't let friends waste. Recycle. "), React.createElement("p", {
-        style: {
-          fontSize: '25px',
-          marginTop: '0px',
-          marginBottom: '30px'
-        }
+        className: "landing-p"
       }, "The leading service to deliver and recycle your LaCroix"), React.createElement("a", {
         onClick: this.onClick,
         style: {
-          margin: '0',
-          width: '170px'
+          margin: '0'
         },
-        className: "round-button"
+        className: "round-button landing-btn"
       }, isLoggedIn ? 'Order Now' : 'Get Started')), React.createElement("div", {
         className: "landing-svg"
-      }, React.createElement(Landingsvg, null)));
+      }, React.createElement(Landingsvg, {
+        className: "onboarding-svg"
+      })));
     }
   }]);
 

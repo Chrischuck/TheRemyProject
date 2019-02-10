@@ -2,6 +2,7 @@ import React from 'react';
 export default (function (_ref) {
   var className = _ref.className;
   return React.createElement("svg", {
+    className: className,
     id: "ad2c9933-90f0-4809-a6a4-573ea5eeb0b1",
     "data-name": "Layer 1",
     xmlns: "http://www.w3.org/2000/svg",

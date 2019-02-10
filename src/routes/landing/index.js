@@ -20,9 +20,9 @@ class Landing extends React.Component {
       <div className='landing-parent'>
 
         <div className='landing-content'>
-          <h1 style={{fontSize: '4em'}}>Friends don't let friends waste. Recycle. </h1>
-          <p style={{fontSize: '25px', marginTop: '0px', marginBottom: '30px'}}>The leading service to deliver and recycle your LaCroix</p>
-          <a onClick={this.onClick} style={{margin: '0', width: '170px'}} className='round-button'>
+          <h1 className="landing-h1" >Friends don't let friends waste. Recycle. </h1>
+          <p className="landing-p">The leading service to deliver and recycle your LaCroix</p>
+          <a onClick={this.onClick} style={{margin: '0'}} className='round-button landing-btn'>
             {
               isLoggedIn ? 'Order Now' : 'Get Started'
             }
@@ -30,7 +30,7 @@ class Landing extends React.Component {
         </div>
 
         <div className='landing-svg'>
-        <Landingsvg/>
+        <Landingsvg className='onboarding-svg' />
         </div>
 
       </div>
