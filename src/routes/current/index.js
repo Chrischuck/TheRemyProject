@@ -7,12 +7,12 @@ import { FadeIn } from '../../components/animate'
 
 const Card = ({ lacroix, updateItem }) => (
   <div className='checkout-box' style={{ marginBottom: '10px'}}>
-    <div className='item-words' style={{display:'block'}}>
+    <div className='item-words' >
       <h3 className='item-title'>{lacroix.name}</h3> 
       <p className='item-desc'>{lacroix.description}</p>
       {
         !lacroix.pickup ?
-          <a onClick={updateItem} className='round-button' style={{ position: 'absolute', fontWeight: 'bold', padding: '7px 30px' }}>Pickup</a> :
+          <a onClick={updateItem} className='round-button' style={{ margin: 0, width: '110px', fontWeight: 'bold', padding: '7px 30px' }}>Pickup</a> :
           <FadeIn><p style={{marginTop: '20px'}}>Awesome! We're on our way to pick up your LaCroix.</p></FadeIn>
       }
 
@@ -80,7 +80,7 @@ export default class extends React.Component {
     if (current.length < 1) {
       return (
         <div className='checkout-box'>
-          <div className='item-words' style={{display:'block'}}>
+          <div className='item-words'>
             <h3 className='item-title'>Uh Oh.</h3> 
             <p className='item-desc'>You don't have any LaCroix! Let's change that.</p>
           </div>

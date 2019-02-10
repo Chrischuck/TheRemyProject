@@ -36,10 +36,7 @@ var Card = function Card(_ref) {
       marginBottom: '10px'
     }
   }, React.createElement("div", {
-    className: "item-words",
-    style: {
-      display: 'block'
-    }
+    className: "item-words"
   }, React.createElement("h3", {
     className: "item-title"
   }, lacroix.name), React.createElement("p", {
@@ -48,7 +45,8 @@ var Card = function Card(_ref) {
     onClick: updateItem,
     className: "round-button",
     style: {
-      position: 'absolute',
+      margin: 0,
+      width: '110px',
       fontWeight: 'bold',
       padding: '7px 30px'
     }
@@ -138,10 +136,7 @@ function (_React$Component) {
         return React.createElement("div", {
           className: "checkout-box"
         }, React.createElement("div", {
-          className: "item-words",
-          style: {
-            display: 'block'
-          }
+          className: "item-words"
         }, React.createElement("h3", {
           className: "item-title"
         }, "Uh Oh."), React.createElement("p", {
