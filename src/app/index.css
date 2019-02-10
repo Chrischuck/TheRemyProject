@@ -145,6 +145,24 @@ a {
   padding: 0
 }
 
+.landing-parent {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: center;
+  margin: 20px;
+}
+
+.landing-content {
+  flex: 1;
+}
+
+.landing-svg {
+  flex: 2;
+}
+
+
+
 @media (max-height: 400px) {
   h1 {
     font-size: 18px
