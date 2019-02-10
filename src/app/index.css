@@ -653,8 +653,8 @@ a {
 .landing-content {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
   flex: 2;
+  padding-top: 25px;
   margin-left: 40px;
 }
 
