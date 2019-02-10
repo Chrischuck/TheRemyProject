@@ -51,7 +51,8 @@ import Header from '../components/header'
 export default class extends React.Component {
   constructor(props) {
     super(props)
-    const cart = window.localStorage.getItem('cart') 
+    const cart = window.localStorage.getItem('cart')
+ 
     this.state = {
       cart: cart ? JSON.parse(cart) : null,
       address: '',
@@ -94,6 +95,7 @@ export default class extends React.Component {
           <Checkout path="/checkout" setCart={this.setCart} cart={cart} address={address} />
           <Pending path="/pending" />
           <Login path="/login" login={this.login} />
+          <Current path="/current" />
           <NotFound default />
         </Router>
       </Fragment>

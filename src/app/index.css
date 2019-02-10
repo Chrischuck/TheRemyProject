@@ -129,7 +129,7 @@ a {
   flex-direction: column;
 }
 .order-header {
-    background: rgba(0,0,0,0.5) url(https://images.unsplash.com/photo-1536252470153-1fa6046d8723?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80);
+    background: url(https://s3-us-west-2.amazonaws.com/remylacroix/header-img.jpeg);
     color: white;
     width: 100%;
     background-size: 100% auto;
