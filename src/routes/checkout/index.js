@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import { Redirect } from '@reach/router';
+import { Redirect, navigate } from '@reach/router';
 
 import AWS from '../../utils/aws'
 
@@ -85,7 +85,8 @@ export default class extends React.Component {
     const { cart } = this.props
 
     if (complete) {
-      return <Redirect to="/pending" />
+      navigate('/pending')
+      return <div></div>
     }
     
     return (

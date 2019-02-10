@@ -91,8 +91,8 @@ export default class extends React.Component {
     }
     return (
       <FadeIn className='order-parent'>
-        <div className='order-header checkout' style={{paddingBottom: '12px'}}>
-          <h1>Order Status.</h1>
+        <div className='order-header checkout' style={{paddingBottom: '12px', background: 'white', color: 'black'}}>
+          <h1>Order Status</h1>
         </div>
 
         {
