@@ -90,7 +90,7 @@ export default class extends React.Component {
       <Fragment>
         <Header isLoggedIn={isLoggedIn} cart={cart} logout={this.logout} />
         <Router style={{display: 'flex', flex: 1}}>
-          <Landing path='/' />
+          <Landing path='/' isLoggedIn={isLoggedIn} />
           <Onboarding path="/onboarding" login={this.login} />
           <Order path="/order" setCart={this.setCart} cart={cart} onTextChange={this.onTextChange} address={address} />
           <Checkout path="/checkout"  setCart={this.setCart} cart={cart} address={address} />

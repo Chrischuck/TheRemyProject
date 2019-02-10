@@ -22,8 +22,11 @@ class Onboarding extends React.Component {
   constructor(props) {
     super(props)
 
+    const fromLanding = !!localStorage.getItem('from_landing')
+    localStorage.setItem('from_landing', '')
+    
     this.state = {
-      step: 0,
+      step: fromLanding ? 1 : 0,
       name: '',
       email: '',
       password: '',
