@@ -6,8 +6,8 @@ class Landing extends React.Component {
     return (
       <div className='landing-parent'>
         <div className='landing-content'>
-          <h1>Headline</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <h1 style={{fontSize: '4em'}}>Friends don't let friends waste. Recycle. </h1>
+          <p style={{fontSize: '20px'}}>The leading service to deliver and recycle your LaxCroix</p>
         </div>
         <div className='landing-svg'>
         <Landingsvg/>
