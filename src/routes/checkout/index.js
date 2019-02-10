@@ -6,6 +6,19 @@ import AWS from '../../utils/aws'
 import IconInput from '../../components/iconInput'
 
 export default class extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      address: props.address,
+      name: window.localStorage.getItem('name'),
+      time: '',
+      phone: '',
+      loading: false,
+      error: false,
+      complete: false
+    }
+  }
 
   render() {
     const { address, name, time, phone, error, loading, complete } = this.state
