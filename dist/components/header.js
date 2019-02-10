@@ -129,6 +129,10 @@ function (_React$Component) {
           }
         }, React.createElement(Link, {
           onClick: _this2.closeModal,
+          to: "/order",
+          className: "dropdown-content"
+        }, "Pending Orders"), React.createElement(Link, {
+          onClick: _this2.closeModal,
           to: "/current",
           className: "dropdown-content"
         }, "Current Drinks"), React.createElement(Link, {
