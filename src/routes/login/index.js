@@ -29,7 +29,7 @@ export default class extends React.Component {
       return
     }
     window.localStorage.setItem('email', email)
-    this.props.login()
+    this.props.login(email)
     navigate('/')
   }
 

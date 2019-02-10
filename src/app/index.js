@@ -52,11 +52,12 @@ export default class extends React.Component {
   constructor(props) {
     super(props)
     const cart = window.localStorage.getItem('cart')
- 
+    const email = window.localStorage.getItem('email')
     this.state = {
       cart: cart ? JSON.parse(cart) : null,
       address: '',
-      isLoggedIn: !!window.localStorage.getItem('email')
+      isLoggedIn: !!window.localStorage.getItem('email'),
+      email: email || null
     }
   }
 
@@ -73,8 +74,8 @@ export default class extends React.Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  login = () => {
-    this.setState({ isLoggedIn: true })
+  login = (email) => {
+    this.setState({ isLoggedIn: true, email })
   }
 
   logout = () => {
@@ -84,7 +85,7 @@ export default class extends React.Component {
   }
 
   render() {
-    const { cart, address, isLoggedIn } = this.state
+    const { cart, address, isLoggedIn, email } = this.state
     return (
       <Fragment>
         <Header isLoggedIn={isLoggedIn} cart={cart} logout={this.logout} />
@@ -92,10 +93,10 @@ export default class extends React.Component {
           <Landing path='/' />
           <Onboarding path="/onboarding" login={this.login} />
           <Order path="/order" setCart={this.setCart} cart={cart} onTextChange={this.onTextChange} address={address} />
-          <Checkout path="/checkout" setCart={this.setCart} cart={cart} address={address} />
+          <Checkout path="/checkout"  setCart={this.setCart} cart={cart} address={address} />
           <Pending path="/pending" />
           <Login path="/login" login={this.login} />
-          <Current path="/current" />
+          <Current path="/current" email={email} />
           <NotFound default />
         </Router>
       </Fragment>
