@@ -20,14 +20,74 @@ export default class extends React.Component {
     }
   }
 
+  onChange = (e) => {
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
+  onSubmit = async () => {
+    const { address, name, time } = this.state
+
+    if (!address || !name || !time) {
+      this.setState({ error: true })
+      return
+    }
+
+    this.setState({ loading: true })
+
+    const ddb = new AWS.DynamoDB({});
+
+    const { cart } = this.props
+    const email = window.localStorage.getItem('email')
+    if (!email) {
+      return
+    }
+    const id = email + ':' + Date.now()
+
+    const params = {
+      Item: {
+       "id": {
+         S: id
+        }, 
+        email: {
+          S: email
+        },
+        "drink": {
+          S: cart.id
+        },
+        address: {
+          S: address
+        },
+        name: {
+          S: name
+        },
+        time: {
+          S: time
+        },
+        status: {
+          S: 'pending'
+        }
+      }, 
+      TableName: "remy_orders"
+     };
+
+     await ddb.putItem(params).promise()
+      .then(console.log)
+      .catch(console.log)
+
+    window.localStorage.setItem('pending_order_id', id)
+    window.localStorage.setItem('pending_order_flavor', cart.name)
+    this.props.setCart(null)
+    this.setState({ loading: false, complete: true })
+  }
+
   render() {
     const { address, name, time, phone, error, loading, complete } = this.state
     const { cart } = this.props
 
-    if (complete && false) {
+    if (complete) {
       return <Redirect to="/pending" />
     }
-
+    
     return (
       <div className='order-parent'>
         <div className='order-header checkout' style={{paddingBottom: '12px'}}>
@@ -109,7 +169,7 @@ export default class extends React.Component {
           </div>
         </div>
         <div className='button-container'>
-          <a type="button" className='order-submit' disabled={!cart || loading}>
+          <a onClick={this.onSubmit} type="button" className='order-submit' disabled={!cart || loading}>
             {
               loading ?
               <span>Loading...</span> :
