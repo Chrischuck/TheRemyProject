@@ -13,7 +13,7 @@ const Card = ({ data, onClick }) => {
         <p className='item-desc'>{data.description}</p>
       </div>
       <div className='item-image-container'>
-        <img style={{height: '110px', width: '110px'}} src={data.img} />
+        <img style={{height: '120px', width: '70px'}} src={data.img} />
       </div>
     </div>
   )
