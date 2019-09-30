@@ -66,7 +66,7 @@ export default {
     apricot: {
       id: "apricot",
       img:
-        "https://www.lacroixwater.com/wp-content/uploads/2014/08/Apricot_Drops_TA.png",
+        "https://www.lacroixwater.com/wp-content/uploads/2019/01/APRICOT-3.png",
       name: "Apricot",
       description:
         "Apricot: is a 2014 new addition to the family which brings a never-been-done-before flavor to the sparkling water aisle!"
@@ -74,7 +74,7 @@ export default {
     passionfruit: {
       id: "passionfruit",
       img:
-        "https://www.lacroixwater.com/wp-content/uploads/2019/01/APRICOT-3.png",
+        "https://www.lacroixwater.com/wp-content/uploads/2019/01/PASSIONFRUIT.png",
       name: "Passionfruit",
       description:
         "Passionfruit now available nationwide! Check your local retailers as our newest flavor is added to store shelves throughout early 2015"
