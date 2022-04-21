@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
 const fadeIn = keyframes`
 from {
@@ -26,7 +26,7 @@ to {
 `;
 
 export const FadeInFromLeft = styled.div`
-  animation: ${fadeInFromLeft} .8s;
+  animation: ${fadeInFromLeft} 0.8s;
 `;
 
 const pulse = keyframes`
@@ -51,7 +51,7 @@ export const Pulse = styled.div`
 const fadeInFromTop = keyframes`
 from {
   opacity: 0;
-  transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -50%, 0);
 }
 
 to {
@@ -61,5 +61,5 @@ to {
 `;
 
 export const FadeInFromTop = styled.div`
-  animation: ${fadeInFromTop} .8s;
+  animation: ${fadeInFromTop} 1.3s;
 `;
