@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --mode development",
     "pretty": "prettier --write \"./**/*.{js,jsx,json,css}\"",
-    "build": "./node_modules/.bin/webpack --config webpack.config.js"
+    "build": "./node_modules/.bin/webpack --config webpack.config.js && cp -a ./static/. ./dist/"
   },
   "author": "",
   "license": "ISC",
