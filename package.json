@@ -16,6 +16,7 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-dom-confetti": "^0.1.1",
+    "react-horizontal-timeline": "^1.5.3",
     "react-loadable": "^5.5.0",
     "styled-components": "^4.1.3"
   },

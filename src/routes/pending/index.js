@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { navigate, Link } from "@reach/router";
 import Confetti from "react-dom-confetti";
-
 import { FadeInFromTop, FadeIn } from "../../components/animate";
 
 import Ship from "../../svg/ship";
@@ -17,7 +16,7 @@ const confettiConfig1 = {
   stagger: 0,
   width: "10px",
   height: "10px",
-  colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+  colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
 };
 
 const confettiConfig2 = {
@@ -30,7 +29,7 @@ const confettiConfig2 = {
   stagger: 0,
   width: "10px",
   height: "10px",
-  colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"]
+  colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
 };
 
 export default class extends React.Component {
@@ -41,7 +40,8 @@ export default class extends React.Component {
       currentOrder: window.localStorage.getItem("order"),
       currentFlavor: window.localStorage.getItem("pending_order_flavor"),
       name: window.localStorage.getItem("name"),
-      isComplete: false
+      isComplete: false,
+      index: 1,
     };
   }
 
@@ -49,40 +49,56 @@ export default class extends React.Component {
     this.init();
   }
 
-  init = async () => {
+  init = () => {
     const currentOrder = JSON.parse(this.state.currentOrder);
 
     if (!currentOrder) {
       navigate("/");
     }
 
-    const interval = setInterval(async () => {
+    const orderOnTheWay = setTimeout(() => {
+      this.setState({ index: 2 });
+    }, 2000);
+
+    const orderApproaching = setTimeout(() => {
+      this.setState({ index: 3 });
+    }, 4000);
+
+    const orderComplete = setTimeout(() => {
       if (currentOrder.status === "pending") {
-        this.setState({ isComplete: true });
+        this.setState({ isComplete: true, index: 4 });
         const interval = window.localStorage.getItem("pending_order_poll");
         clearInterval(interval);
 
         window.localStorage.setItem("cart", "");
       }
-    }, 2000);
-    window.localStorage.setItem("pending_order_poll", interval);
+    }, 6000);
+
+    window.localStorage.setItem("pending_order_poll", orderComplete);
+    window.localStorage.setItem("on_the_way", orderOnTheWay);
+    window.localStorage.setItem("approaching", orderApproaching);
   };
 
   componentDidCatch() {
-    const interval = window.localStorage.getItem("pending_order_poll");
-    clearInterval(interval);
+    this.cleanup();
   }
   componentWillUnmount() {
-    const interval = window.localStorage.getItem("pending_order_poll");
-    clearInterval(interval);
+    this.cleanup();
   }
 
+  cleanup = () => {
+    clearTimeout(window.localStorage.getItem("pending_order_poll"));
+    clearTimeout(window.localStorage.getItem("on_the_way"));
+    clearTimeout(window.localStorage.getItem("approaching"));
+  };
   render() {
     const { currentOrder, currentFlavor, name, isComplete } = this.state;
     if (!currentOrder) {
       navigate("/");
       return <div></div>;
     }
+
+    const statuses = ["Received", "On the way", "Approaching", "Delivered!"];
     return (
       <FadeIn className="order-parent">
         <div
@@ -90,6 +106,74 @@ export default class extends React.Component {
           style={{ paddingBottom: "12px", background: "white", color: "black" }}
         >
           <h1>Order Status</h1>
+        </div>
+        <div
+          style={{
+            height: 25,
+            width: "100%",
+            position: "relative",
+            display: "flex",
+            alignContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              borderRadius: 6,
+              position: "absolute",
+              maxWidth: "calc(100% - 120px)",
+              width: `${this.state.index * 25}%`,
+              height: "3px",
+              backgroundColor: "rgba(255, 86, 158)",
+              margin: "0 60px",
+              zIndex: 100,
+            }}
+          />
+          <div
+            style={{
+              borderRadius: 6,
+              position: "absolute",
+              width: "calc(100% - 120px)",
+              height: "3px",
+              backgroundColor: "#ECEDEF",
+              margin: "0 60px",
+              display: "flex",
+              justifyContent: "space-around",
+            }}
+          >
+            {statuses.map((title, index) => (
+              <div
+                key={title}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  height: 26,
+                  width: 120,
+                  alignItems: "center",
+                }}
+              >
+                <div
+                  style={{
+                    height: 12,
+                    width: 12,
+                    borderRadius: "50%",
+                    backgroundColor:
+                      this.state.index > index
+                        ? "rgba(255, 86, 158)"
+                        : "#ECEDEF",
+                    marginTop: -4,
+                  }}
+                />
+                <div
+                  style={{
+                    color: this.state.index > index ? "black" : "#b3b4b6",
+                  }}
+                >
+                  {title}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {!isComplete ? (
@@ -99,8 +183,8 @@ export default class extends React.Component {
               style={{
                 fontSize: "3vh",
                 textAlign: "center",
-                marginTop: "25px",
-                maxWidth: "70%"
+                marginTop: "28px",
+                maxWidth: "70%",
               }}
             >
               Hang tight{name ? " " + name : ""}, Your
@@ -113,7 +197,7 @@ export default class extends React.Component {
               display: "flex",
               alignItems: "center",
               width: "100%",
-              flexDirection: "column"
+              flexDirection: "column",
             }}
           >
             <Celebrate className="onboarding-svg no-pad" />
@@ -122,7 +206,7 @@ export default class extends React.Component {
                 fontSize: "3vh",
                 textAlign: "center",
                 marginTop: "25px",
-                maxWidth: "70%"
+                maxWidth: "70%",
               }}
             >
               Your{currentFlavor ? " " + currentFlavor : ""} LaCroix has
@@ -131,10 +215,10 @@ export default class extends React.Component {
           </FadeInFromTop>
         )}
 
-        <div style={{ position: 'absolute', top: '50%', left: '20px'}}>
+        <div style={{ position: "absolute", top: "50%", left: "20px" }}>
           <Confetti active={isComplete} config={confettiConfig1} />
         </div>
-        <div style={{ position: 'absolute', top: '50%', right: '20px'}}>
+        <div style={{ position: "absolute", top: "50%", right: "20px" }}>
           <Confetti active={isComplete} config={confettiConfig2} />
         </div>
         <div
