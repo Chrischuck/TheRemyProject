@@ -103,29 +103,31 @@ export default class extends React.Component {
       <FadeIn className="order-parent">
         <div
           className="order-header checkout"
-          style={{ paddingBottom: "12px", background: "white", color: "black" }}
+          style={{ background: "white", color: "black", padding: "16px 0" }}
         >
-          <h1>Order Status</h1>
+          <h1 style={{ marginBottom: 0 }}>Order Status</h1>
         </div>
         <div
           style={{
             height: 25,
             width: "100%",
+            maxWidth: 800,
             position: "relative",
             display: "flex",
             alignContent: "center",
             alignItems: "center",
+            marginBottom: "28px",
           }}
         >
           <div
             style={{
               borderRadius: 6,
               position: "absolute",
-              maxWidth: "calc(100% - 120px)",
-              width: `${this.state.index * 25}%`,
+              maxWidth: "calc(100% - 4px)",
+              width: `calc(${this.state.index * 25}% - 4px)`,
               height: "3px",
               backgroundColor: "rgba(255, 86, 158)",
-              margin: "0 60px",
+              margin: "0 2px",
               zIndex: 100,
             }}
           />
@@ -133,10 +135,10 @@ export default class extends React.Component {
             style={{
               borderRadius: 6,
               position: "absolute",
-              width: "calc(100% - 120px)",
+              width: "calc(100% - 4px)",
               height: "3px",
               backgroundColor: "#ECEDEF",
-              margin: "0 60px",
+              margin: "0 2px",
               display: "flex",
               justifyContent: "space-around",
             }}
@@ -183,7 +185,6 @@ export default class extends React.Component {
               style={{
                 fontSize: "3vh",
                 textAlign: "center",
-                marginTop: "28px",
                 maxWidth: "70%",
               }}
             >
