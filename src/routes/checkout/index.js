@@ -14,11 +14,11 @@ export default class extends React.Component {
       phone: "",
       loading: false,
       error: false,
-      complete: false
+      complete: false,
     };
   }
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -48,9 +48,11 @@ export default class extends React.Component {
         address,
         name,
         time,
-        status: "pending"
+        status: "pending",
       })
     );
+
+    localStorage.setItem("name", name);
 
     this.props.setCart(null);
     this.setState({ loading: false, complete: true });

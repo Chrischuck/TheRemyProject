@@ -128,6 +128,7 @@ export default class extends React.Component {
               height: "3px",
               backgroundColor: "rgba(255, 86, 158)",
               margin: "0 2px",
+              marginTop: 1,
               zIndex: 100,
             }}
           />
@@ -139,6 +140,7 @@ export default class extends React.Component {
               height: "3px",
               backgroundColor: "#ECEDEF",
               margin: "0 2px",
+              marginTop: 1,
               display: "flex",
               justifyContent: "space-around",
             }}
@@ -163,7 +165,7 @@ export default class extends React.Component {
                       this.state.index > index
                         ? "rgba(255, 86, 158)"
                         : "#ECEDEF",
-                    marginTop: -4,
+                    marginTop: -5,
                   }}
                 />
                 <div
@@ -188,7 +190,7 @@ export default class extends React.Component {
                 maxWidth: "70%",
               }}
             >
-              Hang tight{name ? " " + name : ""}, Your
+              Hang tight{name ? ` ${name}` : ""}, your
               {currentFlavor ? " " + currentFlavor : ""} LaCroix is on the way!
             </h2>
           </Fragment>
